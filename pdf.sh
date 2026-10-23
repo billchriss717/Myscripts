@@ -1,7 +1,5 @@
 #!/bin/bash
-
-latexmk -pdf -silent main.tex >/dev/null 2>&1
-rm -rf main.bbl main.fdb_latexmk main.out main.toc main.fls main.blg main.aux main.run.xml main.bcf main.log
+rm -rf main.bbl main.fdb_latexmk main.out main.toc main.fls main.blg main.aux main.run.xml main.bcf main.log indent.log
 
 # file=$(ls *.md)
 # base_name=$(basename "$file" .md)
