@@ -67,4 +67,53 @@ case "$title" in
     cp "$HOME/latex_templates/template_preamble.tex" "$dir/preamble.tex"
     printf "\n${CYAN}Academical Document Successfully Generated With Title! ${RESET}\n"
     ;;
+
+4)
+
+    read -r -p "$(printf "\n${GREEN}Recipient's name ${RESET}")" reci_name
+    read -r -p "$(printf "\n${GREEN}Recipient's Address ${RESET}")" reci_add
+    read -r -p "$(printf "\n${GREEN}Post Code, City ${RESET}")" postcode
+
+    cp "$HOME/latex_templates/template_letter.tex" "$dir/main.tex"
+    cd "$dir" || exit
+    sed -i "s/Recipient's Name/$reci_name/" main.tex
+    sed -i "s/Recipient's Address/$reci_add/" main.tex
+    sed -i "s/Postal Code, City/$postcode/" main.tex
+    cd ../ || exit
+
+    printf "\n${CYAN}Professional Letter In English Successfully Generated! ${RESET}\n"
+    ;;
+
+5)
+
+    read -r -p "$(printf "\n${GREEN}Recipient's name ${RESET}")" reci_name
+    read -r -p "$(printf "\n${GREEN}Recipient's Address ${RESET}")" reci_add
+    read -r -p "$(printf "\n${GREEN}Post Code, City ${RESET}")" postcode
+
+    cp "$HOME/latex_templates/template_letter_de.tex" "$dir/main.tex"
+    cd "$dir" || exit
+    sed -i "s/Recipient's Name/$reci_name/" main.tex
+    sed -i "s/Recipient's Address/$reci_add/" main.tex
+    sed -i "s/Postal Code, City/$postcode/" main.tex
+    cd ../ || exit
+
+    printf "\n${CYAN}Professional Letter In German Successfully Generated! ${RESET}\n"
+    ;;
+
+6)
+
+    read -r -p "$(printf "\n${GREEN}Enter the Title for your document: ${RESET}")" new_title
+    read -r -p "$(printf "\n${GREEN}Enter the Subtitle/Scope of your document: ${RESET}")" new_subtitle
+
+    cp "$HOME/latex_templates/presentation_template_main.tex" "$dir/main.tex"
+    cp "$HOME/latex_templates/presentation_template_preamble.tex" "$dir/preamble.tex"
+
+    cd "$dir" || exit
+    sed -i "s/Engineering Design/$new_title/" main.tex
+    sed -i "s/Principles, Methods and Application/$new_subtitle/" main.tex
+    cd ../ || exit
+
+    printf "\n${CYAN}Presentation Document Successfully Generated! ${RESET}\n"
+    ;;
+
 esac
