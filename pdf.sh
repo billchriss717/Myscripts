@@ -1,5 +1,5 @@
 #!/bin/bash
-rm -rf main.bbl main.fdb_latexmk main.out main.toc main.fls main.blg main.aux main.run.xml main.bcf main.log indent.log
+rm -rf *.bbl *.fdb_latexmk *.out *.toc *.fls *.blg *.aux *.run.xml *.bcf *.log indent.log *gz
 
 # file=$(ls *.md)
 # base_name=$(basename "$file" .md)
