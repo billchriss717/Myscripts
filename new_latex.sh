@@ -17,10 +17,12 @@ printf "${BLUE}│${RESET}  ${YELLOW}2.${RESET} Document with Title             
 printf "${BLUE}│${RESET}  ${YELLOW}3.${RESET} Document with Title (Academics)  ${BLUE}│${RESET}\n"
 printf "${BLUE}│${RESET}  ${YELLOW}4.${RESET} Professional Letter (English)    ${BLUE}│${RESET}\n"
 printf "${BLUE}│${RESET}  ${YELLOW}5.${RESET} Professional Letter (German)     ${BLUE}│${RESET}\n"
-printf "${BLUE}│${RESET}  ${YELLOW}6.${RESET} Professional Presentation        ${BLUE}│${RESET}\n"
+printf "${BLUE}│${RESET}  ${YELLOW}6.${RESET} Academical Presentation          ${BLUE}│${RESET}\n"
+printf "${BLUE}│${RESET}  ${YELLOW}7.${RESET} Professional Presentation        ${BLUE}│${RESET}\n"
+printf "${BLUE}│${RESET}  ${YELLOW}8.${RESET} Image Conversion to Pdf File     ${BLUE}│${RESET}\n"
 printf "${BLUE}╰──────────────────────────────────────╯${RESET}\n\n"
 
-read -r -p "$(printf "${GREEN}Select an option [1-6]: ${RESET}")" title #  NOTE: "$()" is a command substitution and its output is substituted into the surrounding command
+read -r -p "$(printf "${GREEN}Select an option [1-8]: ${RESET}")" title #  NOTE: "$()" is a command substitution and its output is substituted into the surrounding command
 
 dir=$1
 mkdir -p "$dir/figures" "$dir/sections"
