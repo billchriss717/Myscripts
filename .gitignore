@@ -1,1 +1,16 @@
-org.md
+*.pdf
+*.log
+*.aux
+*.out
+*.gz
+*.toc
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.bcf
+*.nav
+*.snm
+*.run.xml
+*.nav
+*.snm
