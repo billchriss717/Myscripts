@@ -116,7 +116,42 @@ case "$title" in
     sed -i "s/Principles, Methods and Application/$new_subtitle/" main.tex
     cd ../ || exit
 
-    printf "\n${CYAN}Presentation Document Successfully Generated! ${RESET}\n"
+    printf "\n${CYAN}Academical Presentation Document Successfully Generated! ${RESET}\n"
+    ;;
+
+7)
+
+    read -r -p "$(printf "\n${GREEN}Enter the Title for your document: ${RESET}")" new_title
+    read -r -p "$(printf "\n${GREEN}Enter the Subtitle/Scope of your document: ${RESET}")" new_subtitle
+
+    cp "$HOME/latex_templates/presentation_template_main_pro.tex" "$dir/main.tex"
+    cp "$HOME/latex_templates/presentation_template_preamble_pro.tex" "$dir/preamble.tex"
+
+    cd "$dir" || exit
+    sed -i "s/Engineering Design/$new_title/" main.tex
+    sed -i "s/Principles, Methods and Application/$new_subtitle/" main.tex
+    cd ../ || exit
+
+    printf "\n${CYAN}Professional Presentation Document Successfully Generated! ${RESET}\n"
+    ;;
+
+8)
+
+    read -r -p "$(printf "\n${GREEN}Enter the Title for your document: ${RESET}")" new_title
+    read -r -p "$(printf "\n${GREEN}Enter Image name 01: ${RESET}")" file_name_01
+    read -r -p "$(printf "\n${GREEN}Enter Image name 02:  ${RESET}")" file_name_02
+
+    cp "$HOME/latex_templates/template_image_to_pdf.tex" "$dir/main.tex"
+
+    cd "$dir" || exit
+    sed -i "s/Center/$new_title/" main.tex
+    sed -i "s/image_name_01/$file_name_01/" main.tex
+    sed -i "s/image_name_02/$file_name_02/" main.tex
+    rm "references.bib"
+    rm -r "sections"
+    cd ../ || exit
+
+    printf "\n${CYAN}Conversion Document Successfully Created${RESET}\n"
     ;;
 
 esac
