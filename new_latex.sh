@@ -20,9 +20,10 @@ printf "${BLUE}│${RESET}  ${YELLOW}5.${RESET} Professional Letter (German)    
 printf "${BLUE}│${RESET}  ${YELLOW}6.${RESET} Academical Presentation          ${BLUE}│${RESET}\n"
 printf "${BLUE}│${RESET}  ${YELLOW}7.${RESET} Professional Presentation        ${BLUE}│${RESET}\n"
 printf "${BLUE}│${RESET}  ${YELLOW}8.${RESET} Image Conversion to Pdf File     ${BLUE}│${RESET}\n"
+printf "${BLUE}│${RESET}  ${YELLOW}0.${RESET}  Blank Template                  ${BLUE}│${RESET}\n"
 printf "${BLUE}╰──────────────────────────────────────╯${RESET}\n\n"
 
-read -r -p "$(printf "${GREEN}Select an option [1-8]: ${RESET}")" title #  NOTE: "$()" is a command substitution and its output is substituted into the surrounding command
+read -r -p "$(printf "${GREEN}Select an option [1-8] [0=Blank Template]: ${RESET}")" title #  NOTE: "$()" is a command substitution and its output is substituted into the surrounding command
 
 dir=$1
 mkdir -p "$dir/figures" "$dir/sections"
@@ -154,6 +155,21 @@ case "$title" in
     cd ../ || exit
 
     printf "\n${CYAN}Conversion Document Successfully Created${RESET}\n"
+    ;;
+
+0)
+
+    read -r -p "$(printf "\n${GREEN}Enter the Title for your document: ${RESET}")" new_title
+
+    cp "$HOME/latex_templates/template_blank.tex" "$dir/main.tex"
+
+    cd "$dir" || exit
+    sed -i "s/Title/$new_title/" main.tex
+    rm "references.bib"
+    rm -r "sections"
+    cd ../ || exit
+
+    printf "\n${CYAN}New Blank Document Successfully Created${RESET}\n"
     ;;
 
 esac
